@@ -23,9 +23,6 @@ struct ServiceConstant {
     static let TOP_HEAD =  "https://newsapi.org/v2/top-headlines?country=us&apiKey=873cfce39d554c5d851e863a8f4df624"
 }
 
-
-
-
 class NewsViewModel {
     
     var delegate: NewsServiceResponse
