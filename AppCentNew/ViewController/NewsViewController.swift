@@ -16,6 +16,7 @@ class NewsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var model: NewsViewModel!
+    var firstTime = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +31,8 @@ class NewsViewController: UIViewController {
         //model
         model = NewsViewModel(delegate: self)
         
-        
-        
-        let cellNib = UINib(nibName: "NewsTableViewCell", bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier:
-                            "NewsCell")
+        getRequestAPICall(url: ServiceConstant.TOP_HEAD)
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,9 +40,9 @@ class NewsViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    func getRequestAPICall(with searchText: String)  {
+    func getRequestAPICall(url: String)  {
         showLoadingHUD()
-        model.getRequestAPICall(searchCriteria: searchText, page: 1)
+        model.getRequestAPICall(with: url)
     }
     
     private func showLoadingHUD() {
@@ -74,7 +72,7 @@ extension NewsViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else{ return }
         
-        getRequestAPICall(with: text)
+        getRequestAPICall(url: model.getURL(text, 1))
     }
     
     
@@ -116,7 +114,14 @@ extension NewsViewController: UITableViewDataSource{
 
 extension NewsViewController: NewsServiceResponse{
     func serviceResponseSucces() {
+        if firstTime {
+            let cellNib = UINib(nibName: "NewsTableViewCell", bundle: nil)
+            tableView.register(cellNib, forCellReuseIdentifier:
+                                "NewsCell")
+            firstTime = false
+        }
         tableView.reloadData()
+        
         hideLoadingHUD()
     }
     

@@ -32,7 +32,7 @@ class NewsDetailViewController: UIViewController {
         }
         titleLabel.text = article.title
         authorNameLabel.text = article.author
-        dateLabel.text = article.publishedAt ?? ""
+        dateLabel.text = String(article.publishedAt?.split(separator: "T")[0] ?? "") 
         newsDetailTextView.text = article.content
         
     }

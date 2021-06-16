@@ -19,8 +19,11 @@ struct ServiceConstant {
     static let END_POINT = "https://newsapi.org/v2/everything?"
     static let API_KEY = "apiKey=873cfce39d554c5d851e863a8f4df624"
     static let SEARCH_CRITERIA = "q="
-    static let PAGE = "page"
+    static let PAGE = "page="
+    static let TOP_HEAD =  "https://newsapi.org/v2/top-headlines?country=us&apiKey=873cfce39d554c5d851e863a8f4df624"
 }
+
+
 
 
 class NewsViewModel {
@@ -33,11 +36,8 @@ class NewsViewModel {
     }
     
     
-    func getRequestAPICall(searchCriteria: String, page: Int){
-        
-        let todosEndpoint: String = getURL(searchCriteria, page)
-    
-        Alamofire.request(todosEndpoint, method: .get, encoding: JSONEncoding.default)
+    func getRequestAPICall(with url: String){
+        Alamofire.request(url, method: .get, encoding: JSONEncoding.default)
             .responseJSON { [weak self] response in
                 debugPrint(response)
                 
@@ -46,7 +46,7 @@ class NewsViewModel {
                     let decoder = JSONDecoder()
                     self?.newsFeed = try decoder.decode(NewsFeed.self, from: data)
                     self?.delegate.serviceResponseSucces()
-                } catch let error {
+                } catch  _ {
                     self?.delegate.serviceResponseFailure()
                 }
             }

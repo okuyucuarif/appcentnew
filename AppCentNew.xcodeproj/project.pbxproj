@@ -32,6 +32,8 @@
 		744E41DF2678EFEB001CB9E6 /* DataSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744E41DD2678EFEB001CB9E6 /* DataSourceViewController.swift */; };
 		744E41E72679D918001CB9E6 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744E41E62679D918001CB9E6 /* FavoriteViewModel.swift */; };
 		744E41E82679D918001CB9E6 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744E41E62679D918001CB9E6 /* FavoriteViewModel.swift */; };
+		74C5F080267A2D0200DCD6D6 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7445D65B26714DB000B3EB89 /* Article.swift */; };
+		74C5F084267A2D1900DCD6D6 /* UIImageView+DownloadImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741CDBAB26715AD3001050D3 /* UIImageView+DownloadImageExtension.swift */; };
 		ADF41F3BC01890568F45DFD7 /* Pods_AppCentNewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8306C09853C9F1FCACD1962 /* Pods_AppCentNewTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -517,7 +519,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74C5F080267A2D0200DCD6D6 /* Article.swift in Sources */,
 				744E41E82679D918001CB9E6 /* FavoriteViewModel.swift in Sources */,
+				74C5F084267A2D1900DCD6D6 /* UIImageView+DownloadImageExtension.swift in Sources */,
 				744E41C62678E25B001CB9E6 /* NewsDetailViewController.swift in Sources */,
 				7445D6612671509900B3EB89 /* NewsFeed.swift in Sources */,
 				744E41DF2678EFEB001CB9E6 /* DataSourceViewController.swift in Sources */,

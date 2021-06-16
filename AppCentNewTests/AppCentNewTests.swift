@@ -14,7 +14,8 @@ class AppCentNewTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        sut = NewsViewModel()
+        
+        sut = NewsViewModel(delegate: MockServiceProtocol())
     }
 
     override func tearDownWithError() throws {
@@ -23,7 +24,7 @@ class AppCentNewTests: XCTestCase {
     
 
     func testExample() throws {
-        XCTAssertEqual("https://newsapi.org/v2/everything?q=tesla&page=1&apiKey=873cfce39d554c5d851e863a8f4df624", sut!.getURL(searchCriteria: "tesla", page: 1))
+        XCTAssertEqual("https://newsapi.org/v2/everything?q=tesla&page=1&apiKey=873cfce39d554c5d851e863a8f4df624", sut!.getURL("tesla", 1))
     }
 
     func testPerformanceExample() throws {
@@ -33,4 +34,16 @@ class AppCentNewTests: XCTestCase {
         }
     }
 
+}
+
+class MockServiceProtocol: NewsServiceResponse {
+    func serviceResponseSucces() {
+        //
+    }
+    
+    func serviceResponseFailure() {
+        //
+    }
+    
+    
 }

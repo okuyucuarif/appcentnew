@@ -26,7 +26,7 @@ class NewsTableViewCell: UITableViewCell {
     
     func configureCell(with article: Article){
         titleLabel.text = article.title
-        descriptionTextView.text = article.description!
+        descriptionTextView.text = article.description ?? ""
         if let imageUrl = article.urlToImage {
             newsImageView.downloadImage(with: imageUrl)
         }
