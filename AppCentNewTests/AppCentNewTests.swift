@@ -9,18 +9,21 @@ import XCTest
 @testable import AppCentNew
 
 class AppCentNewTests: XCTestCase {
+    
+    var sut: NewsViewModel?
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        sut = NewsViewModel()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertEqual("https://newsapi.org/v2/everything?q=tesla&page=1&apiKey=873cfce39d554c5d851e863a8f4df624", sut!.getURL(searchCriteria: "tesla", page: 1))
     }
 
     func testPerformanceExample() throws {
