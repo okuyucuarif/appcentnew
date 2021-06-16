@@ -1,0 +1,6 @@
+framework module Pods_AppCentNewTests {
+  umbrella header "Pods-AppCentNewTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
