@@ -31,9 +31,9 @@ class NewsDetailViewController: UIViewController {
             imageView.downloadImage(with: imageUrl)
         }
         titleLabel.text = article.title
-        authorNameLabel.text = article.author
+        authorNameLabel.text = article.author ?? "Unkown"
         dateLabel.text = String(article.publishedAt?.split(separator: "T")[0] ?? "") 
-        newsDetailTextView.text = article.content
+        newsDetailTextView.text = article.content ?? "There is no description for this news.You can click News Source then redirect to the News Source"
         
     }
     

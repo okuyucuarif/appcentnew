@@ -25,6 +25,7 @@ class AppCentNewTests: XCTestCase {
 
     func testExample() throws {
         XCTAssertEqual("https://newsapi.org/v2/everything?q=tesla&page=1&apiKey=873cfce39d554c5d851e863a8f4df624", sut!.getURL("tesla", 1))
+        XCTAssertEqual("https://newsapi.org/v2/everything?q=tesla&page=2&apiKey=873cfce39d554c5d851e863a8f4df624", sut!.getURL("tesla", 2))
     }
 
     func testPerformanceExample() throws {
